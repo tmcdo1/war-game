@@ -6,10 +6,14 @@ public class Player
 	private boolean inGame; //if a player is still in the game, this value is true, if they are eliminated it is false
 	public Player(String n) //Constructs a player with name n 
 	{
+		name = n; 
 	}
+
 	public Card deal()// Returns the bottom card from hand and deletes it
 	{
-		
+		Card playedCard = hand.get(hand.size()-1)
+		hand.remove(hand.size()-1)
+		return playedCard;
 	}
 	public Card deal(int n)// Returns the bottom n cards from hand and deletes them
 	{
@@ -17,7 +21,7 @@ public class Player
 	}
 	public void addToHand(Card c)//adds one card c to the top of the hand
 	{
-		
+		hand.add(0,c);
 	}
 	public String displayHand() // prints the contents of hand in an asthetically pleasing way
 	{
