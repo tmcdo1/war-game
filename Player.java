@@ -27,15 +27,15 @@ public class Player
 	{
 		return hand.size();
 	}
-	public boolean getInGame()
+	public boolean getInGame()// returns inGame
 	{
 		return inGame;
 	}
-	public int getScore() 
+	public int getScore()// returns score
 	{
 		return score; 
 	}
-	public String getName()
+	public String getName()// returns name
 	{
 		return name; 
 	}
