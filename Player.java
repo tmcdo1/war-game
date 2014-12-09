@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class Player
 {
 	private ArrayList<Card> hand;// represents the cards a player has in his/her hand 
