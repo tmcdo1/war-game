@@ -51,7 +51,7 @@ public class Card
     asciiLines[4] = "| '--'"+rankStr+"|";
     asciiLines[5] = "`------'";
   }
-  public toString() //returns a string representation of a card, with points, rank, and suit
+  public String toString() //returns a string representation of a card, with points, rank, and suit
                    //seperate from the ascii-art represenation 
   {
     return rankStr+" of "+suitStr", worth "+points+"points";
