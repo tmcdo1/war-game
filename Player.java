@@ -1,3 +1,4 @@
+import java.util.*;
 public class Player
 {
 	private ArrayList<Card> hand;// represents the cards a player has in his/her hand 
@@ -19,7 +20,7 @@ public class Player
 /*	public Card deal(int n)// Returns the bottom n cards from hand and deletes them
 	{
 
-*/	}
+*///	}
 	public void addToHand(Card c)//adds one card c to the top of the hand
 	{
 		hand.add(c);
