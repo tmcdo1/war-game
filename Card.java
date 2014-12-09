@@ -3,7 +3,9 @@ public class Card
   private int suitVal; //0-3 value, with spades, clubs, hearts, and diamonds respectively 
   private int value; // 0-51 represents the unique card
   private int rankVal; //0-12 from ace to king respectively 
-  private int points; // 2-14 from two to ace respectively
+  private int points; // 2-13 from two to ace respectively
+  private String[] ranks = {"Ace","2","3","4","5","6","7","8","9","10","Jack","Queen","King"};
+  private String[] suits = {"Spades","Clubs","Hearts","Diamonds"}
   private String rankStr; // the string that shows the card’s rank in a word
   private String suitStr; // the string that shows the card’s suit in a word
   private String[] asciiLines = new String[6];//The string lines that when printed together on top of each other 
@@ -13,6 +15,13 @@ public class Card
   {
     value = val;
     setAsciiLines(); 
+    
+    if (rankVal!=0) 
+      points = rankVal+1;
+    else 
+      points = 14; 
+    rankStr = ranks[rankVal];
+    suitStr = suits[suitVal];
   }
   private setAsciiLines() // sets up the lines of Ascii art to visualy represent a card, showing rank and suit
   {
@@ -49,6 +58,10 @@ public class Card
   public int getValue() //returns value
   {
     return value; 
+  }
+  public String[] getAsciiLines() //returns asciiLines array
+  {
+    return asciiLines; 
   }
   public int getPoints() //returns points 
   {
