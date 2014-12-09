@@ -15,7 +15,8 @@ public class Card
   {
     value = val;
     setAsciiLines(); 
-    
+    rankVal = value%13;
+    suitVal = value%4;
     if (rankVal!=0) 
       points = rankVal+1;
     else 
