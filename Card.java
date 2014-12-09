@@ -24,7 +24,7 @@ public class Card
     rankStr = ranks[rankVal];
     suitStr = suits[suitVal];
   }
-  private setAsciiLines() // sets up the lines of Ascii art to visualy represent a card, showing rank and suit
+  private void setAsciiLines() // sets up the lines of Ascii art to visualy represent a card, showing rank and suit
   {
     asciiLines[0] = ".------.";
     asciiLines[1] = "|"+rankStr+".--. |";
