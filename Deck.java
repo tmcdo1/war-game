@@ -4,7 +4,10 @@ public class Deck
   
   public Deck() //
   {
-    
+    for (int n=0; n<52,n++)
+    {
+      deck.add(new Card(n));
+    }
   }
   public Deck(int n) //
   {
