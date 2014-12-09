@@ -1,33 +1,32 @@
 public class Card
 {
-  private int suitVal; //0-3 value, with spades, clubs, hearts, and diamonds respectively 
+  private int suitVal; //0-3 value, with spades, clubs, hearts, and diamonds respectively
   private int value; // 0-51 represents the unique card
-  private int rankVal; //0-12 from ace to king respectively 
+  private int rankVal; //0-12 from ace to king respectively
   private int points; // 2-13 from two to ace respectively
   private String[] ranks = {"Ace","2","3","4","5","6","7","8","9","10","Jack","Queen","King"};
   private String[] suits = {"Spades","Clubs","Hearts","Diamonds"};
   private String rankStr; // the string that shows the card’s rank in a word
   private String suitStr; // the string that shows the card’s suit in a word
-  private String[] asciiLines = new String[6];//The string lines that when printed together on top of each other 
+  private String[] asciiLines = new String[6];//The string lines that when printed together on top of each other
                                               //produce the ascii representation of the card
-  
   public Card (int val) // contructs a card with value val
   {
     value = val;
-    setAsciiLines(); 
     rankVal = value%13;
     suitVal = value%4;
-    if (rankVal!=0) 
+    if (rankVal!=0)
       points = rankVal+1;
-    else 
-      points = 14; 
+    else
+      points = 14;
     rankStr = ranks[rankVal];
     suitStr = suits[suitVal];
+    setAsciiLines();
   }
   private void setAsciiLines() // sets up the lines of Ascii art to visualy represent a card, showing rank and suit
   {
     asciiLines[0] = ".------.";
-    asciiLines[1] = "|"+rankStr+".--. |";
+    asciiLines[1] = "|"+rankStr.charAt(0)+".--. |";
     if (suitVal==0) //If the card is a spade
       {
       asciiLines[2] = "| :/\\: |";
@@ -48,33 +47,33 @@ public class Card
       asciiLines[2] = "| :/\\: |";
       asciiLines[3] = "| :\\/: |";
       }
-    asciiLines[4] = "| '--'"+rankStr+"|";
+    asciiLines[4] = "| '--'"+rankStr.charAt(0)+"|";
     asciiLines[5] = "`------'";
   }
   public String toString() //returns a string representation of a card, with points, rank, and suit
-                   //seperate from the ascii-art represenation 
+                   //seperate from the ascii-art represenation
   {
-    String toString = rankStr+" of "+suitStr+", worth "+points+"points";
+    String toString = rankStr+" of "+suitStr+", worth "+points+" points";
     return toString;
   }
   public int getValue() //returns value
   {
-    return value; 
+    return value;
   }
   public String[] getAsciiLines() //returns asciiLines array
   {
-    return asciiLines; 
+    return asciiLines;
   }
-  public int getPoints() //returns points 
+  public int getPoints() //returns points
   {
-    return points; 
+    return points;
   }
   public String getRank() //returns rankStr
   {
-    return rankStr; 
+    return rankStr;
   }
   public String getSuit() //returns suitStr
   {
-    return suitStr; 
+    return suitStr;
   }
 }
