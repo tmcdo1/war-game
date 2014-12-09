@@ -5,7 +5,7 @@ public class Card
   private int rankVal; //0-12 from ace to king respectively 
   private int points; // 2-13 from two to ace respectively
   private String[] ranks = {"Ace","2","3","4","5","6","7","8","9","10","Jack","Queen","King"};
-  private String[] suits = {"Spades","Clubs","Hearts","Diamonds"}
+  private String[] suits = {"Spades","Clubs","Hearts","Diamonds"};
   private String rankStr; // the string that shows the card’s rank in a word
   private String suitStr; // the string that shows the card’s suit in a word
   private String[] asciiLines = new String[6];//The string lines that when printed together on top of each other 
