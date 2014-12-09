@@ -33,17 +33,17 @@ public class Card
       asciiLines[2] = "| :/\: |";
       asciiLines[3] = "| (__) |";
       }
-      if (suitVal==1) //If the card is a club
+     if (suitVal==1) //If the card is a club
       {
       asciiLines[2] = "| :(): |";
       asciiLines[3] = "| ()() |";
       }
-      if (suitVal==2) //If the card is a heart
+    if (suitVal==2) //If the card is a heart
       {
       asciiLines[2] = "| (\/) |";
       asciiLines[3] = "| :\/: |";
       }
-      if (suitVal==3) //If the card is a diamond
+    if (suitVal==3) //If the card is a diamond
       {
       asciiLines[2] = "| :/\: |";
       asciiLines[3] = "| :\/: |";
