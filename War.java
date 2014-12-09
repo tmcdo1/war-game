@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class War
 {
 	private int numPlayers; //number of players
