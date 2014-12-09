@@ -30,7 +30,7 @@ public class Card
     asciiLines[1] = "|"+rankStr+".--. |";
     if (suitVal==0) //If the card is a spade
       {
-      asciiLines[2] = "| :/\: |";
+      asciiLines[2] = "| :/\\: |";
       asciiLines[3] = "| (__) |";
       }
      if (suitVal==1) //If the card is a club
@@ -40,13 +40,13 @@ public class Card
       }
     if (suitVal==2) //If the card is a heart
       {
-      asciiLines[2] = "| (\/) |";
-      asciiLines[3] = "| :\/: |";
+      asciiLines[2] = "| (\\/) |";
+      asciiLines[3] = "| :\\/: |";
       }
     if (suitVal==3) //If the card is a diamond
       {
-      asciiLines[2] = "| :/\: |";
-      asciiLines[3] = "| :\/: |";
+      asciiLines[2] = "| :/\\: |";
+      asciiLines[3] = "| :\\/: |";
       }
     asciiLines[4] = "| '--'"+rankStr+"|";
     asciiLines[5] = "`------'";
