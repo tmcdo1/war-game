@@ -1,3 +1,5 @@
+// Compiler-tested
+// Silas-approved
 public class Card
 {
   private int suitVal; //0-3 value, with spades, clubs, hearts, and diamonds respectively
