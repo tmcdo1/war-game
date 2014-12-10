@@ -56,7 +56,8 @@ public class Card
   public String toString() //returns a string representation of a card, with points, rank, and suit
                    //seperate from the ascii-art represenation
   {
-    String toString = rankStr+" of "+suitStr+", worth "+points+" points";
+   // String toString = rankStr+" of "+suitStr+", worth "+points+" points";
+    String toString = rankStr;
     return toString;
   }
   public int getValue() //returns value
