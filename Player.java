@@ -25,9 +25,13 @@ public class Player
 	{
 		hand.add(c);
 	}
-	public String displayHand() // prints the contents of hand in an asthetically pleasing way
+	public void displayHand() // prints the contents of hand in an asthetically pleasing way
 	{
-		return hand;
+		
+		for(int h=0;h<hand.size();h++)
+			System.out.print(hand.get(h)+", ");
+		System.out.println();
+
 	}
 	public int getNumCards()// returns the number of cards in hand
 	{
