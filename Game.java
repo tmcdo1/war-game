@@ -20,7 +20,12 @@ public class Game
 	}
 	public void trick()
 	{
+		for(int h = 0; h<players.size();h++)
+		{
+			compared.add(players.get(h).deal());
+		}
 		
+
 	}
 	public void war()
 	{
@@ -30,4 +35,19 @@ public class Game
 	{
 		
 	}
+	public int compare(ArrayList<Card> c)
+	{
+		int index = 0;
+		for(int h=0;h<c.size()-1;h++)
+		{
+			if(c.get(index).getPoints()<=c.get(h).getPoints())
+				index=h;
+		}
+		if(!isTie())
+			return index;
+		else 
+			war();
+			
+	}
+	public boolean isTie
 }
