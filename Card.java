@@ -12,7 +12,7 @@ public class Card
   private String suitStr; // the string that shows the card’s suit in a word
   private String[] asciiLines = new String[6];//The string lines that when printed together on top of each other
                                               //produce the ascii representation of the card
-  
+
   public Card (int val) // contructs a card with value val
   {
     value = val;
