@@ -145,4 +145,8 @@ public class Game
 		String dummy = input.nextLine();
 		
 	}
+	public Player getWinner()
+	{
+		return players.get(0);
+	}
 }
