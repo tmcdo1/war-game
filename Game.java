@@ -7,6 +7,7 @@ public class Game
 	private ArrayList<Player> players; //a list of all the players in the game
 	private ArrayList<Card> compared; //the cards that are on the table for each trick and are compared
 	private ArrayList<Card> pot; //the cards that are not compared in a game of war but are still won
+	private Scanner input = new Scanner(System.in);//creates a Scanner object for user input
 	
 	public Game()
 	{
@@ -33,6 +34,9 @@ public class Game
 				h--;
 			}			
 		}
+//display the cards in the compare ArrayList
+		displayTable();
+		
 		index = compare(compared);
 //winner wins cards in pot if there is a pot
 		if(pot.size()!=0)
@@ -43,8 +47,14 @@ public class Game
 //winner wins the cards on the table
 		for(int h = 0; h<compared.size();h++)
 			players.get(index).addToHand(compared.get(h));
+//displays the hand for each player
+		for(int h = 0; h<players.size();h++)
+			players.get(h).displayHand();
+		//waits for the user to respond
+		System.out.println("Please press <Enter> to continue");
+		String dummy = input.nextLine();
 	}
-	public void war() //runs when there is a tie in high value cards
+	private void war() //runs when there is a tie in high value cards
 	{
 		for(int h = 0; h<compared.size();h++) //takes existing ArrayList<Card> compared and puts those Cards in the pot ArrayList
 		{
@@ -75,7 +85,7 @@ public class Game
 				h--;
 			}			
 		}
-		
+		displayTable();
 	}
 	public void addPlayer(Player a) //adds a player to the players ArrayList
 	{
@@ -115,5 +125,18 @@ public class Game
 			return true;
 		else
 			return false;		
+	}
+	private void displayTable()//displays cards in the compared ArrayList()
+	{
+		for(int h=0;h<compared.size();h++)
+		{
+			String[] lines = compared.get(h).getAsciiLines();
+			for(int i =0;i<lines.length;i++)
+				System.out.println(lines[i]);
+			System.out.println();
+		}
+		System.out.println("Please press <Enter> to continue");
+		String dummy = input.nextLine();
+		
 	}
 }
