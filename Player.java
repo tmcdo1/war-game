@@ -13,9 +13,16 @@ public class Player
 
 	public Card deal()// Returns the top card from hand and deletes it
 	{
-		Card playedCard = hand.get(0);
-		hand.remove(0);
-		return playedCard;
+		inGame= !isEmpty();
+		if(inGame)
+		{
+			Card playedCard = hand.get(0);
+			hand.remove(0);
+			return playedCard;
+		}
+		else
+			return null;
+
 	}
 /*	public Card deal(int n)// Returns the bottom n cards from hand and deletes them
 	{
@@ -48,5 +55,12 @@ public class Player
 	public String getName()// returns name
 	{
 		return name; 
+	}
+	public boolean isEmpty()// returns if the players hand is empty
+	{
+		if(hand.size()==0)
+			return true;
+		else
+			return false;
 	}
 }
