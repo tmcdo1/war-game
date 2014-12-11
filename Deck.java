@@ -1,12 +1,13 @@
 import java.util.*;
 public class Deck
 {
-  private ArrayList<Card> deck = new ArrayList<Card>(); //contains Card objects that make up the deck for the game
+  private ArrayList<Card> deck; //contains Card objects that make up the deck for the game
   private int numShuffles; //the number of times the deck was shuffled
 
   public Deck() //Creates a standard 52 card deck
   {
-    for (int n=0; n<52; n++)
+    deck = new ArrayList<Card>();
+	for (int n=0; n<52; n++)
       deck.add(new Card(n));
 	numShuffles = 0;
   }
@@ -18,47 +19,45 @@ public class Deck
   }
   public void shuffle() //conducts a perfect shuffle on the deck
   {
-	int deckSize = deck.size();
-		int x = 0;
-		ArrayList<Card> shuffled = new ArrayList<Card>();
-		for(int h=0;h<deckSize/2;h++)
-		{
-			shuffled.add(x,deck.get(h));
-			x+=2;
-		}
-		x =1;
-		for(int h=deckSize-(deckSize/2);h<deckSize;h++)
-		{
-			shuffled.add(x,deck.get(h));
-			x+=2;
-		}
-		for(int h=0; h<deckSize;h++)
-			deck.add(shuffled.get(h));
+	this.shuffle(1);
   }
   public void shuffle(int i) //conducts n perfect shuffles on the deck
   {
+	int deckSize = deck.size();
 	for (int n=0; n<i; n++)
 	{
-	 int deckSize = deck.size();
 		int x = 0;
-		ArrayList<Card> shuffled = new ArrayList<Card>();
+		Card[] shuffled = new Card[deckSize];
 		for(int h=0;h<deckSize/2;h++)
 		{
-			shuffled.add(x,deck.get(h));
+			shuffled[x] = deck.get(h);
 			x+=2;
 		}
 		x =1;
 		for(int h=deckSize-(deckSize/2);h<deckSize;h++)
 		{
-			shuffled.add(x,deck.get(h));
+			shuffled[x] = deck.get(h);
 			x+=2;
 		}
 		for(int h=0; h<deckSize;h++)
-			deck.add(shuffled.get(h));
+			deck.add(shuffled[h]);
 	}
   }
   public Card deal() //Returns the Card from the top of the deck
   {
-  	return deck.get(0);
+  	Card c = deck.get(0);
+	deck.remove(0);
+	return c;
   }
+
+	public void deal(ArrayList<Player> p)
+	{
+		int numDeal = 52/p.size();
+		shuffle(2);
+		for (int n=0; n<p.size(); n++)
+			for (int i=0; i<numDeal; i++)
+		{
+			p.get(n).addToHand(deal());
+		}
+	}
 }
