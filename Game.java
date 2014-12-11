@@ -11,7 +11,14 @@ public class Game
 	
 	public Game()
 	{
-		
+System.out.println(" _    _            _ ");
+System.out.println("| |  | |          | |");
+System.out.println("| |  | | __ _ _ __| |");
+System.out.println("| |/\\| |/ _` | '__| |");
+System.out.println("\\  /\\  / (_| | |  |_|");
+System.out.println(" \\/  \\/ \\__,_|_|  (_)");
+System.out.println();
+System.out.println("Welcome to the Game of War");
 	}
 	public boolean gameOver()
 	{
