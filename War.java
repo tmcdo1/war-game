@@ -5,6 +5,7 @@ public class War
 	private static String[] names = {"Grace","Charles","Alan","Ada"};
 	private static Scanner scanNum = new Scanner(System.in); //takes user input for numPlayers
 	private static Scanner scanStr = new Scanner(System.in);//scanner for the input of a name.
+	
 	public static void main(String[] args)
 	{
 		//Sets up the entire game of war
