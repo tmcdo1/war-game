@@ -8,7 +8,8 @@ public class Game
 	private ArrayList<Card> compared; //the cards that are on the table for each trick and are compared
 	private ArrayList<Card> pot; //the cards that are not compared in a game of war but are still won
 	private Scanner input = new Scanner(System.in);//creates a Scanner object for user input
-	
+	private Deck normalDeck;
+
 	public Game()
 	{
 System.out.println(" _    _            _ ");
@@ -19,6 +20,10 @@ System.out.println("\\  /\\  / (_| | |  |_|");
 System.out.println(" \\/  \\/ \\__,_|_|  (_)");
 System.out.println();
 System.out.println("Welcome to the Game of War");
+	players = new ArrayList<Player>();
+	pot = new ArrayList<Card>();
+	compared = new ArrayList<Card>();
+	normalDeck = new Deck();
 	}
 	public boolean gameOver()
 	{
@@ -39,11 +44,11 @@ System.out.println("Welcome to the Game of War");
 			{
 				players.remove(h);
 				h--;
-			}			
+			}
 		}
 //display the cards in the compare ArrayList
 		displayTable();
-		
+
 		index = compare(compared);
 //winner wins cards in pot if there is a pot
 		if(pot.size()!=0)
@@ -85,7 +90,7 @@ System.out.println("Welcome to the Game of War");
 				{
 					players.remove(h);
 					h--;
-				}			
+				}
 			}
 		for(int h = 0; h<players.size();h++) //players deal and add cards to the compared
 		{
@@ -96,7 +101,7 @@ System.out.println("Welcome to the Game of War");
 			{
 				players.remove(h);
 				h--;
-			}			
+			}
 		}
 		displayTable();
 	}
@@ -114,14 +119,14 @@ System.out.println("Welcome to the Game of War");
 		}
 		if(isTie()!=true)
 			return x;
-		else 
+		else
 		{
 			war();
 			return this.compare(compared);
 		}
 
-			
-			
+
+
 	}
 	public boolean isTie() //checks to see if there is a tie in high values
 	{
@@ -133,11 +138,11 @@ System.out.println("Welcome to the Game of War");
 				if(index!=h)
 					x=1;
 			}
-		}	
+		}
 		if(x==1)
 			return true;
 		else
-			return false;		
+			return false;
 	}
 	private void displayTable()//displays cards in the compared ArrayList()
 	{
@@ -150,10 +155,19 @@ System.out.println("Welcome to the Game of War");
 		}
 		System.out.println("Please press <Enter> to continue");
 		String dummy = input.nextLine();
-		
+
 	}
 	public Player getWinner()
 	{
 		return players.get(0);
+	}
+
+	public Deck getDeck()
+	{
+		return normalDeck;
+	}
+	public ArrayList<Player> getPlayers()
+	{
+		return players;
 	}
 }
