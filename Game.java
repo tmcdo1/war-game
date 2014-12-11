@@ -47,6 +47,12 @@ public class Game
 //winner wins the cards on the table
 		for(int h = 0; h<compared.size();h++)
 			players.get(index).addToHand(compared.get(h));
+//checks to see if players are out of cards and removes them if they are
+		for(int h = 0; h<players.size();h++)
+		{
+			if(players.get(h).isEmpty())
+				players.remove(h);
+		}
 //displays the hand for each player
 		for(int h = 0; h<players.size();h++)
 			players.get(h).displayHand();
