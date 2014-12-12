@@ -19,6 +19,7 @@ public class Player
 		{
 			Card playedCard = hand.get(0);
 			hand.remove(0);
+			inGame = !isEmpty();
 			return playedCard;
 		}
 		else
