@@ -28,8 +28,12 @@ public class Card
   }
   private void setAsciiLines() // sets up the lines of Ascii art to visualy represent a card, showing rank and suit
   {
+	String s = rankStr;
+ 	if(!s.equals("10"))
+		s = rankStr.substring(0,1);
+
     asciiLines[0] = ".------.";
-    asciiLines[1] = "|"+rankStr.charAt(0)+".--. |";
+    asciiLines[1] = "|"+s.charAt(0)+".--. |";
     if (suitVal==0) //If the card is a spade
       {
       asciiLines[2] = "| :/\\: |";
@@ -57,7 +61,9 @@ public class Card
                    //seperate from the ascii-art represenation
   {
    // String toString = rankStr+" of "+suitStr+", worth "+points+" points";
-    String toString = rankStr;
+   String toString = rankStr;
+ 	if(!rankStr.equals("10"))
+		toString = rankStr.substring(0,1);
     return toString;
   }
   public int getValue() //returns value
