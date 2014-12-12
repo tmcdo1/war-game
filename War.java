@@ -2,7 +2,7 @@ import java.util.*;
 public class War
 {
 	private static int numPlayers =0 ; //number of players
-	private static String[] names = {"Grace","Charles","Alan","Ada"};
+	private static String[] names = {"Grace H.","Charles B.","Alan T.","Ada L."};
 	private static Scanner scanNum = new Scanner(System.in); //takes user input for numPlayers
 	private static Scanner scanStr = new Scanner(System.in);//scanner for the input of a name.
 
@@ -24,6 +24,8 @@ public class War
 			w.addPlayer(new Player(names[h]));
 		w.getDeck().deal(w.getPlayers());
 
+		//runs trick
+		w.trick();
 
 	}
 }
