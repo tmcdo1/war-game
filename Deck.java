@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class Deck
 {
   private ArrayList<Card> deck; //contains Card objects that make up the deck for the game
@@ -10,6 +11,7 @@ public class Deck
 	for (int n=0; n<52; n++)
       deck.add(new Card(n));
 	numShuffles = 0;
+	shuffle(2);
   }
   public Deck(int n) //Creates a deck of n 52 card decks
   {
@@ -23,7 +25,7 @@ public class Deck
   }
   public void shuffle(int i) //conducts n perfect shuffles on the deck
   {
-	int deckSize = deck.size();
+/*	int deckSize = deck.size();
 	for (int n=0; n<i; n++)
 	{
 		int x = 0;
@@ -42,6 +44,18 @@ public class Deck
 		for(int h=0; h<deckSize;h++)
 			deck.add(shuffled[h]);
 	}
+*/
+		int deckSize = deck.size();
+		int ran;
+		Card temp;
+		Random randInt = new Random();
+		for(int h=deckSize-1;h>0;h--)
+		{
+			ran = randInt.nextInt(h+1);
+			temp = deck.get(ran);
+			deck.set(ran,deck.get(h));
+			deck.set(h,temp);
+		}
   }
   public Card deal() //Returns the Card from the top of the deck
   {
