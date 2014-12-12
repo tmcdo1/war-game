@@ -9,6 +9,7 @@ public class Player
 	{
 		name = n;
 		score = 0; //sets default score. Sets to 0 wins
+		hand = new ArrayList<Card>();
 	}
 
 	public Card deal()// Returns the top card from hand and deletes it
