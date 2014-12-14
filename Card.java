@@ -33,7 +33,7 @@ public class Card
 		s = rankStr.substring(0,1);
 
     asciiLines[0] = ".------.";
-    asciiLines[1] = "|"+s.charAt(0)+".--. |";
+    asciiLines[1] = "|"+s+".--. |";
     if (suitVal==0) //If the card is a spade
       {
       asciiLines[2] = "| :/\\: |";
@@ -54,7 +54,7 @@ public class Card
       asciiLines[2] = "| :/\\: |";
       asciiLines[3] = "| :\\/: |";
       }
-    asciiLines[4] = "| '--'"+rankStr.charAt(0)+"|";
+    asciiLines[4] = "| '--'"+s+"|";
     asciiLines[5] = "`------'";
   }
   public String toString() //returns a string representation of a card, with points, rank, and suit

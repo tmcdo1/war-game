@@ -5,6 +5,7 @@ public class War
 	private static String[] names = {"Grace H.","Charles B.","Alan T.","Ada L."};
 	private static Scanner scanNum = new Scanner(System.in); //takes user input for numPlayers
 	private static Scanner scanStr = new Scanner(System.in);//scanner for the input of a name.
+	private static boolean test;
 
 	public static void main(String[] args)
 	{
@@ -25,7 +26,16 @@ public class War
 		w.getDeck().deal(w.getPlayers());
 
 		//runs trick
+		test = true;
 		w.trick();
+		while(test)
+		{
+			w.trick();
+			if(w.gameOver())
+				test = false;
+			else
+				test = true;
+		}
 
 	}
 }

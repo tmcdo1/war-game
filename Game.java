@@ -47,8 +47,15 @@ System.out.println("Welcome to the Game of War");
 			}
 		}
 //display the cards in the compare ArrayList
-		displayTable();
+		displayTable(compared);
 
+		
+//checks to see if players are out of cards and removes them if they are
+		for(int h = 0; h<players.size();h++)
+		{
+			if(players.get(h).isEmpty())
+				players.remove(h);
+		}
 		index = compare(compared,0);
 //winner wins cards in pot if there is a pot
 		if(pot.size()!=0)
@@ -63,12 +70,7 @@ System.out.println("Welcome to the Game of War");
 //Prints who won the trick
 		System.out.println("The winner of the trick is ---> "+getTrickWinner().getName());
 		System.out.println();
-//checks to see if players are out of cards and removes them if they are
-		for(int h = 0; h<players.size();h++)
-		{
-			if(players.get(h).isEmpty())
-				players.remove(h);
-		}
+
 //displays the hand for each player
 		for(int h = 0; h<players.size();h++)
 		{
@@ -88,6 +90,7 @@ System.out.println("Welcome to the Game of War");
 			System.out.print(players.get(h).getName()+"'s hand: ");
 			players.get(h).displayHand();
 		}
+		System.out.println();
 
 //
 		for(int h = compared.size()-1; h>=0;h--) //takes existing ArrayList<Card> compared and puts those Cards in the pot ArrayList
@@ -126,7 +129,7 @@ System.out.println("Welcome to the Game of War");
 			players.get(h).displayHand();
 		}
 //
-		displayTable();
+		displayTable(compared);
 
 	}
 	public void addPlayer(Player a) //adds a player to the players ArrayList
@@ -179,12 +182,12 @@ System.out.println("Welcome to the Game of War");
 			return false;
 		}
 	}
-	private void displayTable()//displays cards in the compared ArrayList()
+	private void displayTable(ArrayList<Card> c)//displays cards in the compared ArrayList()
 	{
 		for(int h=0;h<players.size();h++)
 		{
 			System.out.println(players.get(h).getName());
-			String[] lines = compared.get(h).getAsciiLines();
+			String[] lines = c.get(h).getAsciiLines();
 			for(int i =0;i<lines.length;i++)
 				System.out.println(lines[i]);
 			System.out.println();
