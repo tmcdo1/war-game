@@ -34,6 +34,7 @@ System.out.println("Welcome to the Game of War");
 	}
 	public void trick()
 	{
+		index=0;
 		Card x;
 		for(int h = 0; h<players.size();h++)
 		{
@@ -48,7 +49,6 @@ System.out.println("Welcome to the Game of War");
 		}
 //display the cards in the compare ArrayList
 		displayTable(compared);
-
 		
 //checks to see if players are out of cards and removes them if they are
 		for(int h = 0; h<players.size();h++)
@@ -130,6 +130,7 @@ System.out.println("Welcome to the Game of War");
 		}
 //
 		displayTable(compared);
+		index = compare(compared,0);
 
 	}
 	public void addPlayer(Player a) //adds a player to the players ArrayList
@@ -139,7 +140,7 @@ System.out.println("Welcome to the Game of War");
 	public int compare(ArrayList<Card> c, int i) //compares the cards in the compared ArrayList and returns the index of the highest card. Calls on war()
 	{
 		int x = 0;
-		for(int h=0;h<c.size()-1;h++)
+		for(int h=0;h<c.size();h++)
 		{
 			if(c.get(x).getPoints()<=c.get(h).getPoints())
 				x=h;
@@ -148,14 +149,16 @@ System.out.println("Welcome to the Game of War");
 		if(isTie(c,i) == false)
 		{
 
-			return x;
+			return i;
 		}
 		else
 		{
+			i=0;
 			System.out.println("Prepare for war");
 			System.out.println();
 			war();
-			return this.compare(c,i);
+			
+			return x;
 		}
 
 
