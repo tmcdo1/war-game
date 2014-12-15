@@ -110,6 +110,7 @@ System.out.println("Welcome to the Game of War");
 					pot.add(x);
 				else
 				{
+					System.out.println(players.get(h).getName()+"has been removed!");
 					players.remove(h);
 					h--;
 				}
