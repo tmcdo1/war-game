@@ -57,6 +57,11 @@ public class Player
 	{
 		return name;
 	}
+
+	public ArrayList<Card> getHand()// returns name
+	{
+		return hand;
+	}
 	public boolean isEmpty()// returns if the players hand is empty
 	{
 		if(hand.size()==0)
