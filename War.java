@@ -1,3 +1,4 @@
+
 import java.util.*;
 public class War
 {
@@ -36,6 +37,17 @@ public class War
 			else
 				test = true;
 		}
+		System.out.println();
+		System.out.println("Congratulations "+w.getWinner().getName()+"!");
+		System.out.println(w.getWinner().getName()+" has won the game!");
+		System.out.println();
+		System.out.println(" _____          _          __   _    _            ");
+		System.out.println("|  ___|        | |        / _| | |  | |           ");
+		System.out.println("| |__ _ __   __| |   ___ | |_  | |  | | __ _ _ __ ");
+		System.out.println("|  __| '_ \\ / _` |  / _ \\|  _| | |/\\| |/ _` | '__|");
+		System.out.println("| |__| | | | (_| | | (_) | |   \\  /\\  / (_| | |   ");
+		System.out.println("\\____/_| |_|\\__,_|  \\___/|_|    \\/  \\/ \\__,_|_|   ");
+		System.out.println();
 
 	}
 }
