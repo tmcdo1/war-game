@@ -49,7 +49,7 @@ System.out.println("Welcome to the Game of War");
 		}
 //display the cards in the compare ArrayList
 		displayTable(compared);
-		
+
 //checks to see if players are out of cards and removes them if they are
 		for(int h = 0; h<players.size();h++)
 		{
@@ -59,14 +59,17 @@ System.out.println("Welcome to the Game of War");
 		index = compare(compared,0);
 //winner wins cards in pot if there is a pot
 		if(pot.size()!=0)
-			for(int h = pot.size()-1; h>+0;h++)
+			for(int h = pot.size()-1; h>=0;h--)
 			{
 				players.get(index).addToHand(pot.get(h));
 				pot.remove(h);
 			}
 //winner wins the cards on the table
-		for(int h = 0; h<compared.size();h++)
+		for(int h = compared.size()-1; h>=0;h--)
+		{
 			players.get(index).addToHand(compared.get(h));
+			compared.remove(h);
+		}
 //Prints who won the trick
 		System.out.println("The winner of the trick is ---> "+getTrickWinner().getName());
 		System.out.println();
@@ -157,7 +160,7 @@ System.out.println("Welcome to the Game of War");
 			System.out.println("Prepare for war");
 			System.out.println();
 			war();
-			
+
 			return x;
 		}
 
