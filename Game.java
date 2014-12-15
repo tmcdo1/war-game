@@ -43,6 +43,9 @@ System.out.println("Welcome to the Game of War");
 				compared.add(x);
 			else
 			{
+				System.out.println();
+				System.out.println(players.get(h).getName()+" has been eliminated!");
+				System.out.println();
 				players.remove(h);
 				h--;
 			}
@@ -54,9 +57,22 @@ System.out.println("Welcome to the Game of War");
 		for(int h = 0; h<players.size();h++)
 		{
 			if(players.get(h).isEmpty())
+			{
+				System.out.println();
+				System.out.println(players.get(h).getName()+" has been eliminated!");
+				System.out.println();
 				players.remove(h);
+			}
+			
 		}
-		index = compare(compared,0);
+		index = compare(compared);
+//Checks to see if the game is over
+		if(players.size()==1)
+			return;
+		
+//Prints who won the trick
+		System.out.println("The winner of the trick is ---> "+getTrickWinner().getName());
+		System.out.println();
 //winner wins cards in pot if there is a pot
 		if(pot.size()!=0)
 			for(int h = pot.size()-1; h>=0;h--)
@@ -70,9 +86,7 @@ System.out.println("Welcome to the Game of War");
 			players.get(index).addToHand(compared.get(h));
 			compared.remove(h);
 		}
-//Prints who won the trick
-		System.out.println("The winner of the trick is ---> "+getTrickWinner().getName());
-		System.out.println();
+
 
 //displays the hand for each player
 		for(int h = 0; h<players.size();h++)
@@ -87,15 +101,7 @@ System.out.println("Welcome to the Game of War");
 	}
 	private void war() //runs when there is a tie in high value cards
 	{
-//
-		for(int h = 0; h<players.size();h++)
-		{
-			System.out.print(players.get(h).getName()+"'s hand: ");
-			players.get(h).displayHand();
-		}
-		System.out.println();
 
-//
 		for(int h = compared.size()-1; h>=0;h--) //takes existing ArrayList<Card> compared and puts those Cards in the pot ArrayList
 		{
 			pot.add(compared.get(h));
@@ -110,7 +116,9 @@ System.out.println("Welcome to the Game of War");
 					pot.add(x);
 				else
 				{
-					System.out.println(players.get(h).getName()+"has been removed!");
+					System.out.println();
+					System.out.println(players.get(h).getName()+" has been eliminated!");
+					System.out.println();
 					players.remove(h);
 					h--;
 				}
@@ -122,6 +130,9 @@ System.out.println("Welcome to the Game of War");
 				compared.add(x);
 			else
 			{
+				System.out.println();
+				System.out.println(players.get(h).getName()+" has been eliminated!");
+				System.out.println();
 				players.remove(h);
 				h--;
 			}
@@ -134,35 +145,34 @@ System.out.println("Welcome to the Game of War");
 		}
 //
 		displayTable(compared);
-		index = compare(compared,0);
+		index = compare(compared);
 
 	}
 	public void addPlayer(Player a) //adds a player to the players ArrayList
 	{
 		players.add(a);
 	}
-	public int compare(ArrayList<Card> c, int i) //compares the cards in the compared ArrayList and returns the index of the highest card. Calls on war()
+	public int compare(ArrayList<Card> c) //compares the cards in the compared ArrayList and returns the index of the highest card. Calls on war()
 	{
-		int x = 0;
+		index = 0;
 		for(int h=0;h<c.size();h++)
 		{
-			if(c.get(x).getPoints()<=c.get(h).getPoints())
-				x=h;
+			if(c.get(index).getPoints()<=c.get(h).getPoints())
+				index=h;
 		}
-		i=x;
-		if(isTie(c,i) == false)
+		if(isTie(c,index) == false)
 		{
 
-			return i;
+			return index;
 		}
 		else
 		{
-			i=0;
+			index=0;
 			System.out.println("Prepare for war");
 			System.out.println();
 			war();
 
-			return x;
+			return index;
 		}
 
 
