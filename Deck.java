@@ -19,11 +19,11 @@ public class Deck
       deck.add(new Card(i%52));
 	numShuffles = 0;
   }
-  public void shuffle() //conducts a perfect shuffle on the deck
+  public void shuffle() //conducts a random shuffle on the deck
   {
 	this.shuffle(1);
   }
-  public void shuffle(int i) //conducts n perfect shuffles on the deck
+  public void shuffle(int i) //conducts i random shuffles on the deck
   {
 /*	int deckSize = deck.size();
 	for (int n=0; n<i; n++)
