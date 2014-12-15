@@ -1,4 +1,4 @@
-import java.util.*;
+iimport java.util.*;
 
 public class Game
 {
@@ -63,13 +63,13 @@ System.out.println("Welcome to the Game of War");
 				System.out.println();
 				players.remove(h);
 			}
-			
+
 		}
 		index = compare(compared);
 //Checks to see if the game is over
 		if(players.size()==1)
 			return;
-		
+
 //Prints who won the trick
 		System.out.println("The winner of the trick is ---> "+getTrickWinner().getName());
 		System.out.println();
@@ -93,6 +93,7 @@ System.out.println("Welcome to the Game of War");
 		{
 			System.out.print(players.get(h).getName()+"'s hand: ");
 			players.get(h).displayHand();
+			System.out.println("Strength of "+strength(players.get(h)));
 		}
 		//waits for the user to respond
 		System.out.println();
@@ -142,6 +143,7 @@ System.out.println("Welcome to the Game of War");
 		{
 			System.out.print(players.get(h).getName()+"'s hand: ");
 			players.get(h).displayHand();
+			System.out.println("Strength of "+strength(players.get(h)));
 		}
 //
 		displayTable(compared);
@@ -229,5 +231,15 @@ System.out.println("Welcome to the Game of War");
 	public Player getTrickWinner()
 	{
 		return players.get(index);
+	}
+
+	public int strength(Player p)
+	{
+		int strength = 0;
+		for(int n=0; n<p.getHand().size(); n++)
+		{
+			strength+=p.getHand().get(n).getPoints();
+		}
+		return strength;
 	}
 }
